@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Mafe</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilos para las pestañas y el contenido */
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .tab-container button {
+            background-color: #f1f1f1;
+            border: none;
+            padding: 14px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .tab-container button:hover {
+            background-color: #ddd;
+        }
+
+        .tab-container button.active {
+            background-color: #333;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border-top: none;
+            animation: fadeEffect 0.5s;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeEffect {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bienvenidos al Portafolio de Mafe</h1>
+    </header>
+
+    <!-- Contenedor de pestañas -->
+    <div class="tab-container">
+        <button class="tab-link" onclick="openTab(event, 'inicio')" id="defaultOpen"><i class="fas fa-home"></i> Inicio</button>
+        <button class="tab-link" onclick="openTab(event, 'presentacion')"><i class="fas fa-user"></i> Presentación</button>
+        <button class="tab-link" onclick="openTab(event, 'contacto')"><i class="fas fa-envelope"></i> Contacto</button>
+        <button class="tab-link" onclick="openTab(event, 'galeria')"><i class="fas fa-images"></i> Galería</button>
+        <button class="tab-link" onclick="openTab(event, 'multimedia')"><i class="fas fa-photo-video"></i> Multimedia</button>
+    </div>
+
+    <!-- Contenido de cada pestaña -->
+    <div id="inicio" class="tab-content">
+        <h2>Inicio</h2>
+        <p>Mi nombre es María Fernanda Rodas López, tengo 19 años y soy desarrolladora en proceso. Estoy enfocada en aprender sobre desarrollo de software y desarrollo web, adquiriendo habilidades que me permitirán crear aplicaciones y sitios web funcionales y atractivos.</p>
+    </div>
+    
+    <div id="presentacion" class="tab-content">
+        <h2>Presentación</h2>
+        <p>Mi nombre es María Fernanda Rodas López, tengo 19 años y soy desarrolladora en proceso. Estoy construyendo mi carrera en el desarrollo de software y web, con el objetivo de crear aplicaciones innovadoras y experiencias de usuario efectivas. Mi interés en el desarrollo tecnológico me impulsa a aprender constantemente y a enfrentar nuevos desafíos.</p>
+        <p>Soy una persona comprometida y perseverante, cualidades que aplico tanto en mi formación como en los proyectos que emprendo. Mi meta es alcanzar un alto nivel de especialización, contribuir a la creación de soluciones digitales y dejar una huella en el mundo de la tecnología.</p>
+    </div>
+
+    <div id="contacto" class="tab-content">
+        <h2>Contacto</h2>
+        <p>¿Tienes alguna pregunta o quieres colaborar? Escríbeme a <a href="mailto:mafe@ejemplo.com">mafe@ejemplo.com</a>.</p>
+    </div>
+    
+    <div id="galeria" class="tab-content">
+        <h2>Galería</h2>
+        <img src="assets/imagen1.jpg" alt="Pantalla de código con editor de texto, mostrando una aplicación web en desarrollo">
+        <img src="assets/imagen2.jpg" alt="Esquema de flujo de trabajo para un proyecto de desarrollo de software">
+        <img src="assets/imagen3.jpg" alt="Equipo colaborando en una pizarra, planificando un proyecto de software">
+    </div>
+    
+    <div id="multimedia" class="tab-content">
+        <h2>Multimedia</h2>
+        <div>
+            <h3>Video</h3>
+            <video controls>
+                <source src="assets/video.mp4" type="video/mp4">
+                Tu navegador no soporta video en HTML5.
+            </video>
+            <p></p>
+        </div>
+        <div>
+            <h3>Audio</h3>
+            <audio controls>
+                <source src="assets/audio.mp3" type="audio/mp3">
+                Tu navegador no soporta audio en HTML5.
+            </audio>
+            <p></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Sígueme en redes sociales:</p>
+        <a href="https://facebook.com/miPerfil" target="_blank"><i class="fab fa-facebook"></i></a>
+        <a href="https://twitter.com/miPerfil" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a href="https://instagram.com/miPerfil" target="_blank"><i class="fab fa-instagram"></i></a>
+    </footer>
+
+    <!-- Script para mostrar el contenido de cada pestaña -->
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+
+        // Abre la pestaña "Inicio" por defecto
+        document.getElementById("defaultOpen").click();
+    </script>
+</body>
+</html>
